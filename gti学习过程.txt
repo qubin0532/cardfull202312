@@ -31,6 +31,42 @@ Initialized empty Git repository in D:/temp/gitlearn/git-tutorial/.git/
 7.git add -A
 <=>git add -all
 
+Git远程仓库
+Git 并不像 SVN 那样有个中心服务器。目前我们使用到的 Git 命令都是在本地执行，如果你想通过 Git 分享你的代码或者与其他开发人员合作。 你就需要将数据放到一台其他开发人员能够连接的服务器上。
+
+1.添加远程仓库
+git remote add [shortname] [url] 
+git remote rm name  
+git remote rename old_name new_name  
+2.查看远端仓库
+$ git remote
+origin
+$ git remote -v
+origin    git@github.com:tianqixin/runoob-git-test.git (fetch)
+origin    git@github.com:tianqixin/runoob-git-test.git (push)
+3.获取远端仓库代码 git fetch
+$ git fetch <远程主机名> <远程分支名>:<本地分支名>
+不填的话都是默认
+
+4.拉取 git pull
+git pull <远程主机名> <远程分支名>:<本地分支名>
+
+$ git pull --allow-unrelated-histories
+git pull操作其实是git fetch 与 git merge 两个命令的集合。 git fetch 和 git merge FETCH_HEAD 的简写。
+
+相关文档：https://www.runoob.com/git/git-remote-repo.html
+
+5.推送 git push
+$ git push <远程主机名> <本地分支名>:<远程分支名>
+
+$ git push --force origin master
+
+$ git push origin --delete master
+
+$ git push --allow-unrelated-histories
+
+
+
 8.git commit -m "commit text"
 
 9.git remote add origin http://192.168.2.45/qubin/test20231223.git
@@ -53,7 +89,9 @@ remote:
 To http://192.168.2.45/qubin/test20231223.git
  * [new branch]      master -> master
 
-12.git romte -u origin master
+12.git remote -u origin master
+
+注意 -u 参数的目的，是把这个短名称设置为默认。
 
 13.git clone 仓库地址
 
